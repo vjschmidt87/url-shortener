@@ -1,0 +1,88 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.url-card {
+  @include card;
+  @include flex-column;
+  gap: $spacing-md;
+  transition: opacity $transition-fast;
+
+  &.inactive { opacity: 0.6; }
+
+  &__header {
+    @include flex-column;
+    gap: $spacing-xs;
+  }
+
+  &__title-row {
+    @include flex-between;
+  }
+
+  &__title {
+    font-size: $font-size-md;
+    font-weight: 600;
+    color: var(--text-primary);
+    @include truncate;
+    max-width: 70%;
+  }
+
+  &__badge {
+    font-size: $font-size-xs;
+    padding: 2px $spacing-sm;
+    border-radius: $radius-sm;
+    background: var(--success);
+    color: #fff;
+    font-weight: 600;
+
+    &--inactive { background: var(--text-muted); }
+  }
+
+  &__short {
+    @include flex-center;
+    justify-content: flex-start;
+    gap: $spacing-sm;
+  }
+
+  &__link {
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    color: var(--primary);
+    @include truncate;
+  }
+
+  &__original {
+    font-size: $font-size-xs;
+    color: var(--text-muted);
+    @include truncate;
+  }
+
+  &__footer {
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    padding-top: $spacing-sm;
+    border-top: 1px solid var(--border-color);
+  }
+
+  &__stats {
+    @include flex-column;
+    gap: 2px;
+  }
+
+  &__clicks {
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  &__date {
+    font-size: $font-size-xs;
+    color: var(--text-muted);
+  }
+
+  &__actions {
+    @include flex-center;
+    gap: $spacing-xs;
+    flex-wrap: wrap;
+  }
+}

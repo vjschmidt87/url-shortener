@@ -1,0 +1,49 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.dashboard {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: $spacing-2xl $spacing-lg;
+  @include flex-column;
+  gap: $spacing-xl;
+
+  &__header {
+    h1 { font-size: $font-size-2xl; color: var(--text-primary); }
+    p { color: var(--text-secondary); font-size: $font-size-md; }
+  }
+
+  &__stats {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+  }
+
+  &__search {
+    input {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: $radius-md;
+      padding: $spacing-sm $spacing-md;
+      color: var(--text-primary);
+      font-size: $font-size-md;
+      font-family: $font-family;
+
+      &:focus { outline: none; border-color: var(--primary); }
+      &::placeholder { color: var(--text-muted); }
+    }
+  }
+
+  &__list {
+    @include flex-column;
+    gap: $spacing-md;
+  }
+
+  &__empty {
+    text-align: center;
+    padding: $spacing-2xl;
+    color: var(--text-muted);
+    font-size: $font-size-md;
+  }
+}

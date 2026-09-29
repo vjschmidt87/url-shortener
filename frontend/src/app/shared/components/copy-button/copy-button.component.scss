@@ -1,0 +1,16 @@
+@use 'variables' as *;
+
+.copy-btn {
+  padding: $spacing-xs $spacing-md;
+  border: 1px solid var(--primary);
+  border-radius: $radius-sm;
+  background: transparent;
+  color: var(--primary);
+  font-size: $font-size-sm;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover { background: var(--primary); color: #fff; }
+  &.copied { background: var(--success); border-color: var(--success); color: #fff; }
+}

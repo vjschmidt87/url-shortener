@@ -1,0 +1,28 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: $spacing-xl $spacing-lg;
+  margin-top: auto;
+  text-align: center;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    @include flex-column;
+    gap: $spacing-xs;
+  }
+
+  &__tagline {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: $font-size-sm;
+  }
+
+  &__copy {
+    color: var(--text-muted);
+    font-size: $font-size-xs;
+  }
+}

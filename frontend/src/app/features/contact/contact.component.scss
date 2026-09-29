@@ -1,0 +1,30 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.contact {
+  @include flex-center;
+  min-height: calc(100vh - 200px);
+  padding: $spacing-2xl $spacing-lg;
+
+  &__card {
+    @include card;
+    max-width: 600px;
+    width: 100%;
+
+    h1 {
+      font-size: $font-size-xl;
+      color: var(--text-primary);
+      text-align: center;
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  &__sub {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__btn { width: 100%; padding: $spacing-sm $spacing-md; }
+}

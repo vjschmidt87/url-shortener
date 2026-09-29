@@ -1,0 +1,79 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.header {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $spacing-sm $spacing-lg;
+    @include flex-between;
+  }
+
+  &__logo {
+    @include flex-center;
+    gap: $spacing-sm;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: $font-size-lg;
+
+    &-icon { font-size: $font-size-xl; }
+  }
+
+  &__nav {
+    @include flex-center;
+    gap: $spacing-lg;
+
+    a {
+      color: var(--text-secondary);
+      font-size: $font-size-sm;
+      font-weight: 500;
+      transition: color $transition-fast;
+      text-decoration: none;
+
+      &:hover, &.active { color: var(--primary); }
+    }
+
+    @include respond-to(md) { display: none; }
+  }
+
+  &__actions {
+    @include flex-center;
+    gap: $spacing-sm;
+  }
+
+  &__user {
+    font-size: $font-size-sm;
+    color: var(--text-secondary);
+    font-weight: 500;
+
+    @include respond-to(sm) { display: none; }
+  }
+}
+
+.icon-btn {
+  @include flex-center;
+  min-width: 36px;
+  height: 36px;
+  border-radius: $radius-sm;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: $font-size-sm;
+  transition: all $transition-fast;
+
+  &:hover { border-color: var(--primary); }
+}
+
+.lang-btn {
+  padding: 0 $spacing-sm;
+  font-weight: 600;
+  font-size: $font-size-xs;
+}

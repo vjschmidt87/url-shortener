@@ -1,0 +1,42 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: $font-family;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background $transition-normal, color $transition-normal;
+}
+
+a { color: var(--primary); text-decoration: none; &:hover { color: var(--primary-light); } }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: $spacing-xs;
+  padding: $spacing-sm $spacing-lg; border: none; border-radius: $radius-md;
+  font-family: $font-family; font-size: $font-size-sm; font-weight: 600;
+  cursor: pointer; transition: all $transition-fast;
+  &--primary { background: var(--primary); color: #fff; &:hover { background: var(--primary-dark); } }
+  &--accent { background: var(--accent); color: #1a1a2e; &:hover { opacity: 0.9; } }
+  &--outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-primary); &:hover { border-color: var(--primary); } }
+  &--danger { background: var(--danger); color: #fff; &:hover { opacity: 0.9; } }
+  &--sm { padding: $spacing-xs $spacing-sm; font-size: $font-size-xs; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+.form-group {
+  @include flex-column; gap: $spacing-xs; margin-bottom: $spacing-md;
+  label { font-size: $font-size-sm; font-weight: 600; color: var(--text-secondary); }
+  input, select, textarea {
+    background: var(--bg-input); border: 1px solid var(--border-color); border-radius: $radius-sm;
+    padding: $spacing-sm $spacing-md; color: var(--text-primary); font-family: $font-family;
+    font-size: $font-size-md; transition: border-color $transition-fast;
+    &:focus { outline: none; border-color: var(--primary); }
+    &::placeholder { color: var(--text-muted); }
+  }
+  textarea { resize: vertical; min-height: 100px; }
+}
