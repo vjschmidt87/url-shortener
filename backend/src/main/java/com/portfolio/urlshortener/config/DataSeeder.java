@@ -6,6 +6,7 @@ import com.portfolio.urlshortener.entity.User;
 import com.portfolio.urlshortener.repository.ClickEventRepository;
 import com.portfolio.urlshortener.repository.ShortUrlRepository;
 import com.portfolio.urlshortener.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,15 @@ public class DataSeeder implements CommandLineRunner {
     private final ClickEventRepository clickEventRepository;
     private final PasswordEncoder passwordEncoder;
     private final Random random = new Random(42);
+
+    @Value("${app.seed.username}")
+    private String seedUsername;
+
+    @Value("${app.seed.password}")
+    private String seedPassword;
+
+    @Value("${app.seed.email}")
+    private String seedEmail;
 
     private static final String[] BROWSERS = {"Chrome", "Firefox", "Safari", "Edge", "Other"};
     private static final String[] OSES = {"Windows", "macOS", "Linux", "Android", "iOS"};
@@ -40,9 +50,9 @@ public class DataSeeder implements CommandLineRunner {
         if (userRepository.count() > 0) return;
 
         User admin = new User();
-        admin.setUsername("admin");
-        admin.setEmail("admin@urlshortener.com");
-        admin.setPassword(passwordEncoder.encode("admin123"));
+        admin.setUsername(seedUsername);
+        admin.setEmail(seedEmail);
+        admin.setPassword(passwordEncoder.encode(seedPassword));
         userRepository.save(admin);
 
         ShortUrl url1 = createUrl(admin, "https://github.com/spring-projects/spring-boot", "ghSpBt", "Spring Boot GitHub");

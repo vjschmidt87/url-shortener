@@ -20,6 +20,10 @@ app:
     secret: ${JWT_SECRET:dXJsc2hvcnRlbmVyc2VjcmV0a2V5Zm9yand0dG9rZW5nZW5lcmF0aW9uMTIzNDU2Nzg5MA==}
     expiration: 86400000
   base-url: ${APP_BASE_URL:http://localhost:4211}
+  seed:
+    username: ${SEED_USERNAME:admin}
+    password: ${SEED_PASSWORD:admin123}
+    email: ${SEED_EMAIL:admin@urlshortener.com}
 
 ---
 spring:

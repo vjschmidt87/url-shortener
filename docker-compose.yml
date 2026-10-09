@@ -28,6 +28,9 @@ services:
       DB_USERNAME: ${DB_USERNAME:-postgres}
       DB_PASSWORD: ${DB_PASSWORD:-postgres}
       JWT_SECRET: ${JWT_SECRET:-dXJsc2hvcnRlbmVyc2VjcmV0a2V5Zm9yand0dG9rZW5nZW5lcmF0aW9uMTIzNDU2Nzg5MA==}
+      SEED_USERNAME: ${SEED_USERNAME:-admin}
+      SEED_PASSWORD: ${SEED_PASSWORD:-admin123}
+      SEED_EMAIL: ${SEED_EMAIL:-admin@urlshortener.com}
       SPRING_PROFILES_ACTIVE: docker
     ports:
       - "8091:8091"
